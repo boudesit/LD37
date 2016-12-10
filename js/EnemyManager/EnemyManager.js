@@ -26,11 +26,11 @@ EnemyManager.prototype.update = function update() {
 			this.spawnAllowed = false;
 			this.increment += 2.5;
 		}
-		
+
 		if(this.setWaveNumber === 0){
 			this.waveGo = false;
 			this.increment = 0;
-		}	
+		}
 	}
 	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
@@ -80,4 +80,8 @@ EnemyManager.prototype._setWaveGo = function _setWaveNumber(waveGo){
 
 EnemyManager.prototype._setDoorsNumber = function _setDoorsNumber(doorsNumber){
 	this.doorsNumber = doorsNumber;
+};
+
+EnemyManager.prototype._getEnemyGroup = function _getEnemyGroup(){
+	return this.enemyGroup;
 };
