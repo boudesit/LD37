@@ -1,10 +1,11 @@
-function Canard(game, velocity, door) {
+function Canard(game, velocity, door, heroSprite) {
 	this.game = game;
 	this.canardSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
 	this.door = door;
 	this.isSpriteDestroy = false;
+	this.heroSprite = heroSprite;
 };
 
 Canard.prototype.create = function create() {
@@ -16,8 +17,13 @@ Canard.prototype.create = function create() {
 	this.canardSprite.body.collideWorldBounds=true;
 };
 
+Canard.prototype.getSprite = function getSprite() {
+	return this.canardSprite;
+};
+
 Canard.prototype.update = function update() {
-	
+	degrees = game.physics.arcade.angleBetween(this.canardSprite, this.heroSprite) * (180/Math.PI);
+	this.game.physics.arcade.velocityFromAngle(degrees, 100, this.heroSprite.body.velocity);
 };
 
 Canard.prototype.destroy = function destroy() {

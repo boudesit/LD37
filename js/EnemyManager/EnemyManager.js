@@ -1,4 +1,4 @@
-function EnemyManager(game) {
+function EnemyManager(game, heroSprite) {
 	this.game = game;
 	this.waveNumber = null;
 	this.enemyArray = new Array();
@@ -7,6 +7,8 @@ function EnemyManager(game) {
 	this.allEnemyDead = false;
 	this.spawnAllowed = false;
 	this.increment = 0;
+	this.enemyGroup = this.game.add.group();
+	this.heroSprite = heroSprite;
 };
 
 var doors = ["door1","door2","door3","door4"];
@@ -39,9 +41,10 @@ EnemyManager.prototype.update = function update() {
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
-	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
+	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doors[this._randomDoor()], this.heroSprite);
 	tempEnemy.create();
 	this.enemyArray.push(tempEnemy);
+	this.enemyGroup.add(tempEnemy.getSprite())
 }
 
 EnemyManager.prototype.startSpawn = function startSpawn() {
