@@ -15,7 +15,7 @@ HUD.prototype.create = function create() {
   // this.hero = new HeroManager(this.game);
   // this.hero.create();
 
-  this.wavesManager = new WavesManager(this.game);
+  this.wavesManager = new WavesManager(this.game, this.enemy);
   this.wavesManager.create();
 
 };
