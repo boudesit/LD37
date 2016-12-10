@@ -1,12 +1,10 @@
 function Poule(game, velocity, posX, posY) {
 	this.game = game;
 	this.pouleSprite = null;
-	this.isDead = null;
+	this.dead = false;
 	this.velocity = velocity;
 	this.posX = posX;
 	this.posY = posY;
-	this.isDead = false;
-	this.isDraw = false;
 	this.isSpriteDestroy = false;
 };
 
@@ -20,11 +18,18 @@ Poule.prototype.create = function create() {
 	this.pouleSprite.animations.play('walk', 10, true);
 };
 
-
 Poule.prototype.update = function update() {
 
 };
 
 Poule.prototype.destroy = function destroy() {
 	this.pouleSprite.destroy();
+};
+
+Poule.prototype.isDead = function isDead() {
+	return this.dead;
+};
+
+Poule.prototype.die = function die() {
+	this.dead = true;
 };
