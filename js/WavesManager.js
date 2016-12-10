@@ -1,6 +1,6 @@
 function WavesManager(game, enemy) {
 	this.game = game;
-  this.timer = null;
+  	this.timer = null;
 	this.go = true;
 	this.enemy = enemy;
 	this.population = 1;
