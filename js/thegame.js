@@ -1,23 +1,15 @@
 var theGame = function(game) {
 	this.game = game;
 	this.music = null;
-    this.heroManager = null;
-    this.colisionManager = null
-    this.ennemy = null
-    this.explosion = null;
-	this.explosionSound = null;
-	this.shakeWorld = 0;
-    this.spriteBG = null;
-	this.white = "#FFFFFF";
-	this.score = 0;
-	this.enemiesOut = 0;
-	this.multiple = 50;
-	this.scoreText = null;
+  this.hud = null;
+
 }
 
 theGame.prototype = {
   	create: function() {
 
+      this.hud = new HUD(this.game);
+      this.hud.create();
   	// 	music = game.add.audio('gameSound', 1, true);
 		//
     // 	this.spriteBG = this.game.add.tileSprite(0, 0, 800, 600, 'background');
@@ -47,7 +39,7 @@ theGame.prototype = {
 	},
 
 	update: function() {
-
+    this.hud.update();
     //     this.heroManager.update();
     //     game.physics.arcade.overlap( this.heroManager._getFire() ,  this.ennemy.getEnemy().getEnemiesShot() , this.fireHitEnnemy, null, this);
     //     game.physics.arcade.collide(this.heroManager._getSprite() ,  this.ennemy.getEnemy().getEnemies() , this.ennemyHitHero, null, this);
