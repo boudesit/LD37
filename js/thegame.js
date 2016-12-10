@@ -37,7 +37,7 @@ theGame.prototype = {
 	},
 
 	update: function() {
-    // this.hud.update();
+    	this.hud.update();
     // this.heroManager.update();
     //     game.physics.arcade.overlap( this.heroManager._getFire() ,  this.ennemy.getEnemy().getEnemiesShot() , this.fireHitEnnemy, null, this);
     //     game.physics.arcade.collide(this.heroManager._getSprite() ,  this.ennemy.getEnemy().getEnemies() , this.ennemyHitHero, null, this);
