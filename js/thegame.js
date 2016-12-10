@@ -23,8 +23,8 @@ theGame.prototype = {
     // 		music.resume();
     // 	}
 		//
-		// this.heroManager = new HeroManager(this.game);
-		// this.heroManager.create();
+		this.heroManager = new HeroManager(this.game);
+		this.heroManager.create();
 		//
 		// this.ennemy = new EnemyManager(this.game);
 		// this.ennemy.create();
@@ -40,7 +40,7 @@ theGame.prototype = {
 
 	update: function() {
     this.hud.update();
-    //     this.heroManager.update();
+    this.heroManager.update();
     //     game.physics.arcade.overlap( this.heroManager._getFire() ,  this.ennemy.getEnemy().getEnemiesShot() , this.fireHitEnnemy, null, this);
     //     game.physics.arcade.collide(this.heroManager._getSprite() ,  this.ennemy.getEnemy().getEnemies() , this.ennemyHitHero, null, this);
     // 	this.ennemy.update();

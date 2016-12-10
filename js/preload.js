@@ -39,7 +39,7 @@ preload.prototype = {
 		//
 		//
 		// //Image
-    // 	this.game.load.image('bullet', 'assets/img/bullet.png');
+    this.game.load.image('bullet', 'assets/img/bullet.png');
 		//
 		//
 		// //Sound
