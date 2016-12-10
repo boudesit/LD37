@@ -13,6 +13,7 @@ Canard.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.canardSprite);
 	this.canardSprite.enableBody = true;
 	this.canardSprite.body.velocity.x = this.velocity;
+	this.canardSprite.body.velocity.y = this.velocity;
 	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.canardSprite.body.collideWorldBounds=true;
 };
@@ -22,8 +23,7 @@ Canard.prototype.getSprite = function getSprite() {
 };
 
 Canard.prototype.update = function update() {
-	degrees = game.physics.arcade.angleBetween(this.canardSprite, this.heroSprite) * (180/Math.PI);
-	this.game.physics.arcade.velocityFromAngle(degrees, 100, this.heroSprite.body.velocity);
+	this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 100);
 };
 
 Canard.prototype.destroy = function destroy() {

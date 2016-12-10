@@ -13,6 +13,7 @@ Poule.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.pouleSprite);
 	this.pouleSprite.enableBody = true;
 	this.pouleSprite.body.velocity.x = this.velocity;
+	this.pouleSprite.body.velocity.y = this.velocity;
 	this.pouleSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.pouleSprite.body.collideWorldBounds=true;
 };
@@ -22,8 +23,7 @@ Poule.prototype.getSprite = function getSprite() {
 };
 
 Poule.prototype.update = function update() {
-	degrees = game.physics.arcade.angleBetween(this.canardSprite, this.pouleSprite) * (180/Math.PI);
-	this.game.physics.arcade.velocityFromAngle(degrees, 100, this.heroSprite.body.velocity);
+	this.game.physics.arcade.moveToObject(this.pouleSprite, this.heroSprite, 100);
 };
 
 Poule.prototype.destroy = function destroy() {
