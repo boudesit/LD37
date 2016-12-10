@@ -8,7 +8,7 @@ preload.prototype = {
     //Spritesheet
 
 		// this.game.load.spritesheet('hero_slip', 'assets/img/hero_slip.png', 150,75,1);
-		// this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
+		this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
 		//
 		//
 		this.game.load.spritesheet('Dindon', 'assets/img/dindon-sprite-1.png', 41, 50,2);
@@ -48,7 +48,7 @@ preload.prototype = {
     // 	game.load.audio('gameSound', 'assets/sound/music_game_1644.mp3');
     // 	game.load.audio('introSound', 'assets/sound/music_title_1613.mp3');
     // 	game.load.audio('loseSound', 'assets/sound/gameover_2321.mp3');
-  	// 	game.load.audio('explosionSound', 'assets/sound/explodeSound.mp3');
+  	   	game.load.audio('explosionSound', 'assets/sound/explodeSound.mp3');
   	// 	game.load.audio('jumpSound', 'assets/sound/sound_Up.mp3');
   	// 	game.load.audio('crouchSound', 'assets/sound/sound_down.mp3');
   	// 	game.load.audio('deathSound', 'assets/sound/sound_death.mp3');
