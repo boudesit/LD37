@@ -1,10 +1,11 @@
-function Poule(game, velocity, door) {
+function Poule(game, velocity, door, heroSprite) {
 	this.game = game;
 	this.pouleSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
 	this.door = door;
 	this.isSpriteDestroy = false;
+	this.heroSprite = heroSprite;
 };
 
 Poule.prototype.create = function create() {
@@ -12,11 +13,17 @@ Poule.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.pouleSprite);
 	this.pouleSprite.enableBody = true;
 	this.pouleSprite.body.velocity.x = this.velocity;
-	this.pouleSprite.visible = true;
+	this.pouleSprite.body.velocity.y = this.velocity;
+	this.pouleSprite.physicsBodyType = Phaser.Physics.ARCADE;
+	this.pouleSprite.body.collideWorldBounds=true;
+};
+
+Poule.prototype.getSprite = function getSprite() {
+	return this.pouleSprite;
 };
 
 Poule.prototype.update = function update() {
-
+	this.game.physics.arcade.moveToObject(this.pouleSprite, this.heroSprite, 250);
 };
 
 Poule.prototype.destroy = function destroy() {
