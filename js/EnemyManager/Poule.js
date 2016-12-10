@@ -23,7 +23,7 @@ Poule.prototype.getSprite = function getSprite() {
 };
 
 Poule.prototype.update = function update() {
-	this.game.physics.arcade.moveToObject(this.pouleSprite, this.heroSprite, 100);
+	this.game.physics.arcade.moveToObject(this.pouleSprite, this.heroSprite, 250);
 };
 
 Poule.prototype.destroy = function destroy() {
