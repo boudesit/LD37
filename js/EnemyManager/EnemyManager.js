@@ -13,9 +13,7 @@ var doors = ["door1","door2","door3","door4"];
 var enemys =["Dindon","Canard","Poule"];
 
 EnemyManager.prototype.create = function create() {
-	tempEnemy = new Enemy(this.game, 25, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
-	tempEnemy.create();
-	this.enemyArray.push(tempEnemy);
+	this._createEnemy();
 };
 
 EnemyManager.prototype.update = function update() {
@@ -41,7 +39,7 @@ EnemyManager.prototype.update = function update() {
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
-	tempEnemy = new Enemy(this.game, 25, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
+	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
 	tempEnemy.create();
 	this.enemyArray.push(tempEnemy);
 }
