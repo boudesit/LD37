@@ -12,7 +12,8 @@ Poule.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.pouleSprite);
 	this.pouleSprite.enableBody = true;
 	this.pouleSprite.body.velocity.x = this.velocity;
-	this.pouleSprite.visible = true;
+	this.pouleSprite.physicsBodyType = Phaser.Physics.ARCADE;
+	this.pouleSprite.body.collideWorldBounds=true;
 };
 
 Poule.prototype.update = function update() {
