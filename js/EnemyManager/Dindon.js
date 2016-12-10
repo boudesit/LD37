@@ -9,13 +9,16 @@ function Dindon(game, velocity, posX, posY) {
 };
 
 Dindon.prototype.create = function create() {
-	this.dindonSprite = this.game.add.sprite(this.posX, this.posY, "Dindon");
-	this.game.physics.arcade.enable(this.dindonSprite);
+	// this.dindonSprite = this.game.add.sprite(this.posX, this.posY, "Dindon");
+	// this.game.physics.arcade.enable(this.dindonSprite);
+	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
 
-	this.dindonSprite.animations.add('walk');
-	this.dindonSprite.enableBody = true;
-	this.dindonSprite.body.velocity.x = this.velocity;
-	this.dindonSprite.animations.play('walk', 10, true);
+	this.dindonSprite = this.game.add.text(0, 0, 'Time until event: ' + 20, style);
+	 
+	// this.dindonSprite.animations.add('walk');
+	// this.dindonSprite.enableBody = true;
+	// this.dindonSprite.body.velocity.x = this.velocity;
+	// this.dindonSprite.animations.play('walk', 10, true);
 };
 
 Dindon.prototype.update = function update() {

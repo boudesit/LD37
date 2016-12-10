@@ -10,6 +10,7 @@ function WavesManager(game) {
 WavesManager.prototype.create = function create() {
 
   this.game.stage.backgroundColor = '#000';
+	this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
   this.timer = game.time.create(false);
   this.timer.loop(10000, this.updateCounter, this);
@@ -23,14 +24,21 @@ WavesManager.prototype.update = function update() {
 
 text = this.game.add.text(0, 0, 'Time until event: ' + this.timer.duration.toFixed(0), style);
 text2 =this.game.add.text(0, 100,'Loop Count: ' + this.counterWaves, style);
+	if(this.spaceKey.isDown) {
+		this.endWaves();
+	}
 
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
     this.counterWaves++;
-}
-
-WavesManager.prototype.render = function render() {
-  this.game.debug.text('Time until event: ' + this.timer.duration.toFixed(0), 32, 32);
-  this.game.debug.text('Loop Count: ' + this.counterWaves, 32, 64);
 };
+
+WavesManager.prototype.endWaves = function endWaves() {
+		this.timer.destroy();
+		this.updateCounter();
+
+		this.timer = game.time.create(false);
+		this.timer.loop(10000, this.updateCounter, this);
+		this.timer.start();
+}
