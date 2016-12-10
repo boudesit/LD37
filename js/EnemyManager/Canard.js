@@ -23,7 +23,7 @@ Canard.prototype.getSprite = function getSprite() {
 };
 
 Canard.prototype.update = function update() {
-	this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 100);
+	this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 250);
 };
 
 Canard.prototype.destroy = function destroy() {
