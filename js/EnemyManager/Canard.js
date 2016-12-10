@@ -1,21 +1,18 @@
-function Canard(game, velocity, posX, posY) {
+function Canard(game, velocity, door) {
 	this.game = game;
 	this.canardSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
-	this.posX = posX;
-	this.posY = posY;
+	this.door = door;
 	this.isSpriteDestroy = false;
 };
 
 Canard.prototype.create = function create() {
-	this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard");
+	this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard", 0);
 	this.game.physics.arcade.enable(this.canardSprite);
-
-	this.canardSprite.animations.add('walk');
 	this.canardSprite.enableBody = true;
 	this.canardSprite.body.velocity.x = this.velocity;
-	this.canardSprite.animations.play('walk', 10, true);
+	this.canardSprite.visible = true;
 };
 
 Canard.prototype.update = function update() {

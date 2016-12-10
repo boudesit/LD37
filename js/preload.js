@@ -5,15 +5,15 @@ preload.prototype = {
         var loadingBar = this.add.sprite(200,240,"loading");
         this.load.setPreloadSprite(loadingBar);
 
-        //Spritesheet
-		// this.game.load.spritesheet('hero_idle', 'assets/img/hero_idle.png', 150,150,2);
+    //Spritesheet
+
 		// this.game.load.spritesheet('hero_slip', 'assets/img/hero_slip.png', 150,75,1);
 		// this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
 		//
 		//
-		// this.game.load.spritesheet('enemy_up0', 'assets/img/enemy5_2025.png', 41, 50,2);
-		// this.game.load.spritesheet('enemy_up1', 'assets/img/enemy6_2055.png', 50, 49,2);
-		// this.game.load.spritesheet('enemy_up2', 'assets/img/enemy9_2223.png', 50, 50,2);
+		this.game.load.spritesheet('Dindon', 'assets/img/dindon-sprite-1.png', 41, 50,2);
+		this.game.load.spritesheet('Canard', 'assets/img/canard-sprite-1.png', 50, 49,2);
+		this.game.load.spritesheet('Poule', 'assets/img/canard-sprite-3.png', 50, 50,2);
 		// this.game.load.spritesheet('enemy_up3', 'assets/img/enemy7_2101.png', 50, 50,2);
 		//
 		// this.game.load.spritesheet('enemy_shot0', 'assets/img/enemy4_2007.png', 50, 150,4);
@@ -39,7 +39,9 @@ preload.prototype = {
 		//
 		//
 		// //Image
-    // 	this.game.load.image('bullet', 'assets/img/bullet.png');
+    this.game.load.image('hero_idle', 'assets/img/hero_idle.png');
+    this.game.load.image('bullet', 'assets/img/bullet.png');
+    this.game.load.image('bullet2', 'assets/img/bullet2.png');
 		//
 		//
 		// //Sound

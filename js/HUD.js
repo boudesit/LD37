@@ -9,20 +9,20 @@ function HUD(game) {
 };
 
 HUD.prototype.create = function create() {
-  this.enemy = new Enemy(this.game);
+  this.enemy = new EnemyManager(this.game);
   this.enemy.create();
 
-  this.hero = new HeroManager(this.game);
-  this.hero.create();
+  // this.hero = new HeroManager(this.game);
+  // this.hero.create();
 
-  this.wavesManager = new WavesManager(this.game);
+  this.wavesManager = new WavesManager(this.game, this.enemy);
   this.wavesManager.create();
 
 };
 
 HUD.prototype.update = function update() {
-  // this.enemy.update();
+   
   // this.hero.update();
-  this.wavesManager.update();
-
+   this.wavesManager.update();
+   this.enemy.update();
 };

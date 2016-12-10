@@ -1,21 +1,18 @@
-function Dindon(game, velocity, posX, posY) {
+function Dindon(game, velocity, door) {
 	this.game = game;
 	this.dindonSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
-	this.posX = posX;
-	this.posY = posY;
+	this.door = door;
 	this.isSpriteDestroy = false;
 };
 
 Dindon.prototype.create = function create() {
-	this.dindonSprite = this.game.add.sprite(this.posX, this.posY, "Dindon");
+	this.dindonSprite = this.game.add.sprite(this.posX, this.posY, "Dindon", 0);
 	this.game.physics.arcade.enable(this.dindonSprite);
-
-	this.dindonSprite.animations.add('walk');
 	this.dindonSprite.enableBody = true;
 	this.dindonSprite.body.velocity.x = this.velocity;
-	this.dindonSprite.animations.play('walk', 10, true);
+	this.dindonSprite.visible = true;
 };
 
 Dindon.prototype.update = function update() {
