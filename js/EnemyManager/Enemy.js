@@ -32,3 +32,7 @@ Enemy.prototype.createEnemy = function createEnemy(){
 		this.enemy = new Poule(this.game, this.velocity, this.posX, this.posY);
 	}
 };
+
+Enemy.prototype.destroy = function destroy() {
+	this.enemy.destroy();
+};
