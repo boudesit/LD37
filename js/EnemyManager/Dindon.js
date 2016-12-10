@@ -13,9 +13,9 @@ Dindon.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.dindonSprite);
 	this.dindonSprite.enableBody = true;
 	this.dindonSprite.body.velocity.x = this.velocity;
+	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.dindonSprite.body.collideWorldBounds=true;                        
-	
 };
 
 Dindon.prototype.getSprite = function getSprite() {
@@ -23,8 +23,7 @@ Dindon.prototype.getSprite = function getSprite() {
 };
 
 Dindon.prototype.update = function update() {
-	degrees = game.physics.arcade.angleBetween(this.dindonSprite, this.heroSprite) * (180/Math.PI);
-	this.game.physics.arcade.velocityFromAngle(degrees, 100, this.heroSprite.body.velocity);
+	this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 100);
 };
 
 Dindon.prototype.destroy = function destroy() {
