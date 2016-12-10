@@ -8,9 +8,11 @@ function Poule(game, velocity, door) {
 };
 
 Poule.prototype.create = function create() {
-	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
-
-	this.pouleSprite = this.game.add.text(this.door[0], this.door[1], 'Time until event: ' + 20, style);
+	this.pouleSprite = this.game.add.sprite(this.posX, this.posY, "Poule", 0);
+	this.game.physics.arcade.enable(this.pouleSprite);
+	this.pouleSprite.enableBody = true;
+	this.pouleSprite.body.velocity.x = this.velocity;
+	this.pouleSprite.visible = true;
 };
 
 Poule.prototype.update = function update() {
