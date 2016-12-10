@@ -8,13 +8,9 @@ function Canard(game, velocity, door) {
 };
 
 Canard.prototype.create = function create() {
-	// this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard");
-	// this.game.physics.arcade.enable(this.canardSprite);
+	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
 
-	// this.canardSprite.animations.add('walk');
-	// this.canardSprite.enableBody = true;
-	// this.canardSprite.body.velocity.x = this.velocity;
-	// this.canardSprite.animations.play('walk', 10, true);
+	this.canardSprite = this.game.add.text(this.door[0], this.door[1], 'Time until event: ' + 20, style);
 };
 
 Canard.prototype.update = function update() {

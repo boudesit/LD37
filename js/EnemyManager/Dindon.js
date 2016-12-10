@@ -12,7 +12,7 @@ Dindon.prototype.create = function create() {
 	// this.game.physics.arcade.enable(this.dindonSprite);
 	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
 
-	this.dindonSprite = this.game.add.text(500, 500, 'Time until event: ' + 20, style);
+	this.dindonSprite = this.game.add.text(this.door[0], this.door[1], 'Time until event: ' + 20, style);
 	 
 	// this.dindonSprite.animations.add('walk');
 	// this.dindonSprite.enableBody = true;
