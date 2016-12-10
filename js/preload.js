@@ -5,8 +5,8 @@ preload.prototype = {
         var loadingBar = this.add.sprite(200,240,"loading");
         this.load.setPreloadSprite(loadingBar);
 
-        //Spritesheet
-		 this.game.load.spritesheet('hero_idle', 'assets/img/hero_idle.png', 150,150,2);
+    //Spritesheet
+
 		// this.game.load.spritesheet('hero_slip', 'assets/img/hero_slip.png', 150,75,1);
 		// this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
 		//
@@ -39,7 +39,9 @@ preload.prototype = {
 		//
 		//
 		// //Image
+    this.game.load.image('hero_idle', 'assets/img/hero_idle.png');
     this.game.load.image('bullet', 'assets/img/bullet.png');
+
 		//
 		//
 		// //Sound
