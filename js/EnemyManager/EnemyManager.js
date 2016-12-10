@@ -11,14 +11,14 @@ var doors = ["door1","door2","door3","door4"];
 var enemys =["Dindon","Canard","Poule"];
 
 EnemyManager.prototype.create = function create() {
-	tempEnemy = new Enemy(this.game, 5, enemys[_randomEnemy()], doors[_randomDoor()] , 0);
+	tempEnemy = new Enemy(this.game, 5, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
 	this.enemyArray.push(tempEnemy);
 };
 
 EnemyManager.prototype.update = function update() {
 	if(this.waveGo === true){
 		for(i = 0; i < this.waveNumber; i++){
-			tempEnemy = new Enemy(this.game, 5, enemys[_randomEnemy()], doors[_randomDoor()] , 0);
+			tempEnemy = new Enemy(this.game, 5, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
 			this.enemyArray.push(tempEnemy);
 		}
 		this.waveGo =  false;
@@ -31,11 +31,11 @@ EnemyManager.prototype.update = function update() {
 	}
 };
 
-EnemyManager.prototype._randomEnemy : function _randomEnemy() {
+EnemyManager.prototype._randomEnemy = function _randomEnemy() {
 	return Math.floor(Math.random() * 3);
 };
 
-EnemyManager.prototype._randomEnemy : function _randomDoor() {
+EnemyManager.prototype._randomDoor = function _randomDoor() {
 	return Math.floor(Math.random() * this.doorsNumber + 1);
 };
 
@@ -59,5 +59,5 @@ EnemyManager.prototype._setWaveGo = function _setWaveNumber(waveGo){
 };
 
 EnemyManager.prototype._setDoorsNumber = function _setDoorsNumber(doorsNumber){
-	this.waveGo = waveGo;
+	this.doorsNumber = doorsNumber;
 };
