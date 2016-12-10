@@ -33,7 +33,8 @@ text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + 
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
-		this.enemy.createEnemyWave(0, this.populateEnemy());		//	setWaveNumber(doorsNumber, waveNumer)
+		this.enemy.createEnemyWave(0, this.populateEnemy());
+				//	setWaveNumber(doorsNumber, waveNumer)
 
 };
 
