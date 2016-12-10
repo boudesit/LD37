@@ -1,4 +1,4 @@
-function Enemy(game, velocity, type, door, spriteNumber) {
+function Enemy(game, velocity, type, door, heroSprite) {
 	this.game = game;
 	this.enemy = null;
 	this.isDead = null;
@@ -6,7 +6,7 @@ function Enemy(game, velocity, type, door, spriteNumber) {
 	this.cursors = null;
 	this.type = type;
 	this.door = door;
-	this.spriteNumber = spriteNumber;
+	this.heroSprite = heroSprite;
 };
 
 var types = ["Canard", "Dindon", "Poule"];
@@ -23,15 +23,19 @@ Enemy.prototype.update = function update() {
 	this.enemy.update();
 };
 
+Enemy.prototype.getSprite = function getSprite() {
+	return this.enemy.getSprite();
+};
+
 Enemy.prototype.createEnemy = function createEnemy(){
 	if(this.type === "Canard"){
-		this.enemy = new Canard(this.game, this.velocity, this.chooseDoor());
+		this.enemy = new Canard(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
 		this.enemy.create();
 	}else if(this.type === "Dindon"){
-		this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor());
+		this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
 		this.enemy.create();
 	}else if(this.type === "Poule"){
-		this.enemy = new Poule(this.game, this.velocity, this.chooseDoor());
+		this.enemy = new Poule(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
 		this.enemy.create();
 	}
 };
