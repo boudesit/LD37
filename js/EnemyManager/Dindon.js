@@ -23,7 +23,7 @@ Dindon.prototype.getSprite = function getSprite() {
 };
 
 Dindon.prototype.update = function update() {
-	this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 100);
+	this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
 };
 
 Dindon.prototype.destroy = function destroy() {
