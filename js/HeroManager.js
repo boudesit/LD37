@@ -14,6 +14,8 @@ var HeroManager = function(game) {
 	this.weapon2 = null;
 	this.switch_Weapon = false;
 	this.isSpacePress = false;
+
+	this.live = null;
 }
 
 HeroManager.prototype = {
@@ -47,6 +49,8 @@ HeroManager.prototype = {
 
 		var key1 = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     key1.onDown.add(this._addPhaserDude, this);
+
+		this.live = 3;
     },
 
     update: function() {
@@ -116,5 +120,10 @@ HeroManager.prototype = {
 
 		_getWeapons2 : function() {
 				return this.weapon2.bullets;
+		},
+
+		_heroIsHit : function() {
+				this.live -= 1;
+				return this.live;
 		}
 }
