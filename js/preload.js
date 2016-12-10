@@ -41,7 +41,7 @@ preload.prototype = {
 		// //Image
     this.game.load.image('hero_idle', 'assets/img/hero_idle.png');
     this.game.load.image('bullet', 'assets/img/bullet.png');
-
+    this.game.load.image('bullet2', 'assets/img/bullet2.png');
 		//
 		//
 		// //Sound
