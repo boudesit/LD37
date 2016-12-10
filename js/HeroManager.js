@@ -35,7 +35,6 @@ HeroManager.prototype = {
     this.weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     this.weapon.bulletSpeed = 500;
 		this.weapon.fireRate = 900;
-		this.weapon.rotation   = true;
     this.weapon.trackSprite(this.sprite, 4, 4);
 
 		//Arme 2
@@ -43,7 +42,6 @@ HeroManager.prototype = {
 		this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
 		this.weapon2.bulletSpeed = 900;
 		this.weapon2.fireRate = 200;
-		this.weapon2.rotation   = true;
 		this.weapon2.bulletAngleVariance = 20;
 		this.weapon2.trackSprite(this.sprite, 4, 4);
 
@@ -110,5 +108,13 @@ HeroManager.prototype = {
 
     _getIsDead : function() {
     	return this.isDead;
-    }
+    },
+
+		_getWeapons1 : function() {
+				return this.weapon.bullets;
+		},
+
+		_getWeapons2 : function() {
+				return this.weapon2.bullets;
+		}
 }
