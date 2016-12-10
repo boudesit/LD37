@@ -1,10 +1,9 @@
-function Canard(game, velocity, posX, posY) {
+function Canard(game, velocity, door) {
 	this.game = game;
 	this.canardSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
-	this.posX = posX;
-	this.posY = posY;
+	this.door = door;
 	this.isSpriteDestroy = false;
 };
 

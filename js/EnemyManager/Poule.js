@@ -1,10 +1,9 @@
-function Poule(game, velocity, posX, posY) {
+function Poule(game, velocity, door) {
 	this.game = game;
 	this.pouleSprite = null;
 	this.dead = false;
 	this.velocity = velocity;
-	this.posX = posX;
-	this.posY = posY;
+	this.door = door;
 	this.isSpriteDestroy = false;
 };
 
