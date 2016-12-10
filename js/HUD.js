@@ -83,6 +83,8 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 
 HUD.prototype.enemyHitHero = function enemyHitHero(hero,enemy) {
 
+	enemy.kill();
+	if(this.hero._heroIsHit() == 0){
 			 //Lose
 			 this.lose();
 	}
