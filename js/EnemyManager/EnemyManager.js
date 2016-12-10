@@ -5,7 +5,7 @@ function EnemyManager(game) {
 };
 
 EnemyManager.prototype.create = function create() {
-	this.enemyArray.push(new Enemy(this.game,0,"Dindon"300,300,0));
+	this.enemyArray.push(new Enemy(this.game,0,"Dindon",300,300,0));
 };
 
 EnemyManager.prototype.update = function update() {
