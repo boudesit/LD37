@@ -82,8 +82,10 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 
 
 HUD.prototype.enemyHitHero = function enemyHitHero(hero,enemy) {
-	 //Lose
-	 this.lose()
+
+			 //Lose
+			 this.lose();
+	}
 };
 
 HUD.prototype.lose = function lose() {
