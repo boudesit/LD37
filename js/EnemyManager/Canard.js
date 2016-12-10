@@ -9,13 +9,13 @@ function Canard(game, velocity, posX, posY) {
 };
 
 Canard.prototype.create = function create() {
-	this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard");
-	this.game.physics.arcade.enable(this.canardSprite);
+	// this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard");
+	// this.game.physics.arcade.enable(this.canardSprite);
 
-	this.canardSprite.animations.add('walk');
-	this.canardSprite.enableBody = true;
-	this.canardSprite.body.velocity.x = this.velocity;
-	this.canardSprite.animations.play('walk', 10, true);
+	// this.canardSprite.animations.add('walk');
+	// this.canardSprite.enableBody = true;
+	// this.canardSprite.body.velocity.x = this.velocity;
+	// this.canardSprite.animations.play('walk', 10, true);
 };
 
 Canard.prototype.update = function update() {
