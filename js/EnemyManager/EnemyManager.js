@@ -12,6 +12,7 @@ var enemys =["Dindon","Canard","Poule"];
 
 EnemyManager.prototype.create = function create() {
 	tempEnemy = new Enemy(this.game, 5, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
+	tempEnemy.create();
 	this.enemyArray.push(tempEnemy);
 };
 
@@ -19,14 +20,15 @@ EnemyManager.prototype.update = function update() {
 	if(this.waveGo === true){
 		for(i = 0; i < this.waveNumber; i++){
 			tempEnemy = new Enemy(this.game, 5, enemys[this._randomEnemy()], doors[this._randomDoor()], 0);
+			tempEnemy.create();
 			this.enemyArray.push(tempEnemy);
 		}
 		this.waveGo =  false;
 	}
-	for(i = 0; i < this.enemyArray.size(); i++){
+	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
 	}
-	if(this.enemyArray.size() === 0){
+	if(this.enemyArray.length === 0){
 		this.allEnemyDead = true;
 	}
 };

@@ -24,7 +24,7 @@ WavesManager.prototype.update = function update() {
 
 	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
 
-text = this.game.add.text(0, 0, 'Time until event: ' + this.timer.duration.toFixed(0), style);
+//text = this.game.add.text(0, 0, 'Time until event: ' + this.timer.duration.toFixed(0), style);
 text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + this.coeff, style);
 	if(this.enemy.isAllEnemyDead()) {
 		this.endWaves();

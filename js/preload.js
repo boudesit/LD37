@@ -11,9 +11,9 @@ preload.prototype = {
 		// this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
 		//
 		//
-		// this.game.load.spritesheet('enemy_up0', 'assets/img/enemy5_2025.png', 41, 50,2);
-		// this.game.load.spritesheet('enemy_up1', 'assets/img/enemy6_2055.png', 50, 49,2);
-		// this.game.load.spritesheet('enemy_up2', 'assets/img/enemy9_2223.png', 50, 50,2);
+		this.game.load.spritesheet('Dindon', 'assets/img/dindon-sprite-1.png', 41, 50,2);
+		this.game.load.spritesheet('Canard', 'assets/img/canard-sprite-1.png', 50, 49,2);
+		this.game.load.spritesheet('Poule', 'assets/img/canard-sprite-3.png', 50, 50,2);
 		// this.game.load.spritesheet('enemy_up3', 'assets/img/enemy7_2101.png', 50, 50,2);
 		//
 		// this.game.load.spritesheet('enemy_shot0', 'assets/img/enemy4_2007.png', 50, 150,4);
