@@ -27,46 +27,53 @@ HeroManager.prototype = {
 
 
     //  Arme 1
-    this.weapon = this.game.add.weapon(1, 'bullet');
+    this.weapon = this.game.add.weapon(50, 'bullet');
     this.weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     this.weapon.bulletSpeed = 400;
+		this.weapon.fireRate = 600;
+		this.weapon.rotation   = true;
     this.weapon.trackSprite(this.sprite, 1, 0);
-    //this.weapon.rotation =  game.physics.arcade.moveToPointer(this.weapon, 1000, game.input.activePointer, 500);
 
+
+		var angle = null;
     },
 
     update: function() {
 
 			//Deplacement
-				var force = 4;
+				var vitesse = 4;
+				angle = game.physics.arcade.angleToPointer(this.sprite);
+				this.sprite.rotation = angle;
+
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
-				    this.sprite.x -= force;
+				    this.sprite.x -= vitesse;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.D)) {
-				    this.sprite.x += force;
+				    this.sprite.x += vitesse;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.W)) {
-				    this.sprite.y -= force;
+				    this.sprite.y -= vitesse;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.S)) {
-				    this.sprite.y += force;
+				    this.sprite.y += vitesse;
 				}
 
         if ( game.input.activePointer.leftButton.isDown )
         {
-					  console.log('Click Souri');
-            this.weapon.fire();
+
+						this.weapon.fireAngle = ((angle * 180) / Math.PI);
+
+						this.weapon.fire();
         }
 
 				if ( game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
 				{
-				    console.log('Space');
 						//change weapon
-						this.weapon.fire();
+
 				}
     },
 
