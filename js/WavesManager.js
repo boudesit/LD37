@@ -34,15 +34,12 @@ text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + 
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
-<<<<<<< HEAD
 	if((this.doors != this.coeff) && this.doors < 4) {
 		this.doors = this.coeff;
 	}
 		this.enemy.createEnemyWave(this.doors, this.populateEnemy());		//	setWaveNumber(doorsNumber, waveNumer)
-=======
 		this.enemy.createEnemyWave(0, this.populateEnemy());
 				//	setWaveNumber(doorsNumber, waveNumer)
->>>>>>> refs/remotes/origin/development
 
 };
 
