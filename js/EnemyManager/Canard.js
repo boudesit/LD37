@@ -12,7 +12,8 @@ Canard.prototype.create = function create() {
 	this.game.physics.arcade.enable(this.canardSprite);
 	this.canardSprite.enableBody = true;
 	this.canardSprite.body.velocity.x = this.velocity;
-	this.canardSprite.visible = true;
+	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
+	this.canardSprite.body.collideWorldBounds=true;
 };
 
 Canard.prototype.update = function update() {
