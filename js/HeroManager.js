@@ -10,6 +10,9 @@ var HeroManager = function(game) {
 
   this.fireButton = null;
   this.weapon = null;
+
+	this.weapon2 = null;
+
 }
 
 HeroManager.prototype = {
@@ -34,17 +37,21 @@ HeroManager.prototype = {
 		this.weapon.rotation   = true;
     this.weapon.trackSprite(this.sprite, 1, 0);
 
-
-		var angle = null;
+		//Arme 2
+		/*
+		this.weapon = this.game.add.weapon(50, 'bullet');
+		this.weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		this.weapon.bulletSpeed = 400;
+		this.weapon.fireRate = 600;
+		this.weapon.rotation   = true;
+		this.weapon.trackSprite(this.sprite, 1, 0);
+		*/
     },
 
     update: function() {
 
 			//Deplacement
 				var vitesse = 4;
-				angle = game.physics.arcade.angleToPointer(this.sprite);
-				this.sprite.rotation = angle;
-
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
 				    this.sprite.x -= vitesse;
@@ -64,9 +71,7 @@ HeroManager.prototype = {
 
         if ( game.input.activePointer.leftButton.isDown )
         {
-
-						this.weapon.fireAngle = ((angle * 180) / Math.PI);
-
+						this.weapon.fireAngle = (( game.physics.arcade.angleToPointer(this.sprite) * 180) / Math.PI);
 						this.weapon.fire();
         }
 
