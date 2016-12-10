@@ -114,5 +114,5 @@ theGame.prototype = {
 	// 	} else{
 	// 		return 0;
 	// 	}
-	// }
+ }
 }
