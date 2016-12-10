@@ -25,11 +25,14 @@ Enemy.prototype.update = function update() {
 
 Enemy.prototype.createEnemy = function createEnemy(){
 	if(this.type === "Canard"){
-		this.enemy = new Canard(this.game, this.velocity, chooseDoor());
+		this.enemy = new Canard(this.game, this.velocity, this.chooseDoor());
+		this.enemy.create();
 	}else if(this.type === "Dindon"){
-		this.enemy = new Dindon(this.game, this.velocity, chooseDoor());
+		this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor());
+		this.enemy.create();
 	}else if(this.type === "Poule"){
-		this.enemy = new Poule(this.game, this.velocity, chooseDoor());
+		this.enemy = new Poule(this.game, this.velocity, this.chooseDoor());
+		this.enemy.create();
 	}
 };
 
