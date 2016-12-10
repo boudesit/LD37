@@ -1,12 +1,10 @@
 function Dindon(game, velocity, posX, posY) {
 	this.game = game;
 	this.dindonSprite = null;
-	this.isDead = null;
+	this.dead = false;
 	this.velocity = velocity;
 	this.posX = posX;
 	this.posY = posY;
-	this.isDead = false;
-	this.isDraw = false;
 	this.isSpriteDestroy = false;
 };
 
@@ -18,9 +16,7 @@ Dindon.prototype.create = function create() {
 	this.dindonSprite.enableBody = true;
 	this.dindonSprite.body.velocity.x = this.velocity;
 	this.dindonSprite.animations.play('walk', 10, true);
-
 };
-
 
 Dindon.prototype.update = function update() {
 	
@@ -28,4 +24,12 @@ Dindon.prototype.update = function update() {
 
 Dindon.prototype.destroy = function destroy() {
 	this.dindonSprite.destroy();
+};
+
+Dindon.prototype.isDead = function isDead() {
+	return this.dead;
+};
+
+Dindon.prototype.die = function die() {
+	this.dead = true;
 };
