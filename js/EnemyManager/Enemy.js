@@ -1,5 +1,4 @@
 function Enemy(game, velocity, type, posX, posY, spriteNumber) {
-	var tabPos = type % 3;
 	this.game = game;
 	this.enemy = null;
 	this.isDead = null;
@@ -18,9 +17,8 @@ Enemy.prototype.create = function create() {
 	this.createEnemy();
 };
 
-
 Enemy.prototype.update = function update() {
-	
+	this.enemy.update();
 };
 
 Enemy.prototype.createEnemy = function createEnemy(){
