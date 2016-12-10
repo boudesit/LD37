@@ -6,7 +6,6 @@ function Enemy(game, velocity, type, door, heroSprite) {
 	this.cursors = null;
 	this.type = type;
 	this.door = door;
-	this.spriteNumber = spriteNumber;
 	this.heroSprite = heroSprite;
 };
 

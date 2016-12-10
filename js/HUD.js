@@ -21,7 +21,6 @@ HUD.prototype.create = function create() {
 };
 
 HUD.prototype.update = function update() {
-
    this.hero.update();
    this.wavesManager.update();
    this.enemy.update();
