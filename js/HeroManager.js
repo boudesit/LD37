@@ -31,7 +31,7 @@ HeroManager.prototype = {
 		this.sprite.enableBody = true;
 	  this.sprite.body.collideWorldBounds=true;
 		this.sprite.anchor.set(0.5);
-		this.sprite.scale.setTo(1.5,1.5);
+		this.sprite.scale.setTo(2,2);
 
     //  Arme 1
     this.weapon = this.game.add.weapon(5, 'bullet');
@@ -70,22 +70,23 @@ HeroManager.prototype = {
 
 
 			//Deplacement
-				var vitesse = 4;
 
+ 				this.sprite.body.velocity.x = 0;
+				this.sprite.body.velocity.y = 0;
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
-				    this.sprite.x -= vitesse;
+						this.sprite.body.velocity.x = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.D)) {
-				    this.sprite.x += vitesse;
+						this.sprite.body.velocity.x = 500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.W)) {
-				    this.sprite.y -= vitesse;
+				    this.sprite.body.velocity.y = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.S)) {
-				    this.sprite.y += vitesse;
+				    this.sprite.body.velocity.y  = 500;
 				}
 
         if ( game.input.activePointer.leftButton.isDown )
