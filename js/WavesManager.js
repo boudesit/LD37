@@ -35,17 +35,10 @@ WavesManager.prototype.update = function update() {
 
 WavesManager.prototype.updateCounter = function updateCounter() {
 	if((this.doors != this.coeff) && (this.doors < 4) && ((this.population % 5) == 0)) {
-<<<<<<< HEAD
-  		this.doors = this.coeff;
- 	}
-		this.enemy.createEnemyWave(this.doors, this.populateEnemy());
-=======
 		this.doors = this.coeff;
-	}
+ 	}
 		console.log(this.doors);
-		this.enemy.createEnemyWave(this.doors, this.populateEnemy());		//	setWaveNumber(doorsNumber, waveNumer)
-				//	setWaveNumber(doorsNumber, waveNumer)
->>>>>>> refs/remotes/origin/development
+		this.enemy.createEnemyWave(this.doors, this.populateEnemy());
 
 };
 
