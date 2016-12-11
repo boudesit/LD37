@@ -70,22 +70,23 @@ HeroManager.prototype = {
 
 
 			//Deplacement
-				var vitesse = 4;
 
+ 				this.sprite.body.velocity.x = 0;
+				this.sprite.body.velocity.y = 0;
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
-				    this.sprite.x -= vitesse;
+						this.sprite.body.velocity.x = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.D)) {
-				    this.sprite.x += vitesse;
+						this.sprite.body.velocity.x = 500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.W)) {
-				    this.sprite.y -= vitesse;
+				    this.sprite.body.velocity.y = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.S)) {
-				    this.sprite.y += vitesse;
+				    this.sprite.body.velocity.y  = 500;
 				}
 
         if ( game.input.activePointer.leftButton.isDown )
