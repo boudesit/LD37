@@ -16,6 +16,7 @@ Dindon.prototype.create = function create() {
 	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.dindonSprite.body.collideWorldBounds=true;
+	this.dindonSprite.life = 6;
 };
 
 Dindon.prototype.getSprite = function getSprite() {

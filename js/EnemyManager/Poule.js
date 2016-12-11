@@ -6,6 +6,7 @@ function Poule(game, velocity, door, heroSprite) {
 	this.door = door;
 	this.isSpriteDestroy = false;
 	this.heroSprite = heroSprite;
+	this.life = 1;
 };
 
 Poule.prototype.create = function create() {
@@ -16,6 +17,7 @@ Poule.prototype.create = function create() {
 	this.pouleSprite.body.velocity.y = this.velocity;
 	this.pouleSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.pouleSprite.body.collideWorldBounds=true;
+	this.pouleSprite.life = 1;
 };
 
 Poule.prototype.getSprite = function getSprite() {
@@ -40,4 +42,12 @@ Poule.prototype.isDead = function isDead() {
 
 Poule.prototype.die = function die() {
 	this.dead = true;
+};
+
+Poule.prototype.getLife = function getLife() {
+	return this.life;
+};
+
+Poule.prototype.setLife = function setLife(life) {
+	this.life = life;
 };
