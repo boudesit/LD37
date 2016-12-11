@@ -10,13 +10,15 @@ function Dindon(game, velocity, door, heroSprite) {
 
 Dindon.prototype.create = function create() {
 	this.dindonSprite = this.game.add.sprite(this.door[0], this.door[1], "Dindon", 0);
+	this.dindonSprite.animations.add('idle', [0,1,2]);
+	this.dindonSprite.animations.play('idle', 5, true);
 	this.game.physics.arcade.enable(this.dindonSprite);
 	this.dindonSprite.enableBody = true;
 	this.dindonSprite.body.velocity.x = this.velocity;
 	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.dindonSprite.body.collideWorldBounds=true;
-	this.dindonSprite.scale.setTo(1.5,1.5);
+	this.dindonSprite.scale.setTo(2,2);
 	this.dindonSprite.life = 6;
 };
 

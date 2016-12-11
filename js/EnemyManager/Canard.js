@@ -10,13 +10,15 @@ function Canard(game, velocity, door, heroSprite) {
 
 Canard.prototype.create = function create() {
 	this.canardSprite = this.game.add.sprite(this.door[0], this.door[1], "Canard", 0);
+	this.canardSprite.animations.add('idle', [0,1,2]);
+	this.canardSprite.animations.play('idle', 5, true);
 	this.game.physics.arcade.enable(this.canardSprite);
 	this.canardSprite.enableBody = true;
 	this.canardSprite.body.velocity.x = this.velocity;
 	this.canardSprite.body.velocity.y = this.velocity;
 	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.canardSprite.body.collideWorldBounds=true;
-	this.canardSprite.scale.setTo(1.5,1.5);
+	this.canardSprite.scale.setTo(2,2);
 	this.canardSprite.life = 3;
 };
 
