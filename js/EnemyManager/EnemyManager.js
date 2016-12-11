@@ -41,7 +41,9 @@ EnemyManager.prototype.update = function update() {
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
-	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doors[this._randomDoor()], this.heroSprite);
+	var doorc = doors[this._randomDoor()];
+	console.log(doorc);
+	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doorc, this.heroSprite);
 	tempEnemy.create();
 	this.enemyArray.push(tempEnemy);
 	this.enemyGroup.add(tempEnemy.getSprite())
@@ -63,7 +65,8 @@ EnemyManager.prototype._randomDoor = function _randomDoor() {
 EnemyManager.prototype.createEnemyWave = function setWaveNumber(doorsNumber, waveNumber){
 	this._setWaveGo(true);
 	this._setDoorsNumber(doorsNumber);
-	this._setWaveNumber(this.waveNumber + waveNumber);
+	this.waveNumber += waveNumber;
+	this._setWaveNumber(this.waveNumber);
 };
 
 EnemyManager.prototype.isAllEnemyDead = function isAllEnemyDead(){
