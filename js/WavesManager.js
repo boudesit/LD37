@@ -45,7 +45,6 @@ WavesManager.prototype.updateCounter = function updateCounter() {
 WavesManager.prototype.endWaves = function endWaves() {
 		this.timer.destroy();
 		this.updateCounter();
-
 		this.timer = game.time.create(false);
 		this.timer.loop(10000, this.updateCounter, this);
 		this.timer.start();
