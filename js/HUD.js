@@ -73,14 +73,17 @@ HUD.prototype.update = function update() {
 
 HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 
-	 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
-	 this.explosion.animations.add('boom');
-	 this.explosion.play('boom', 30, false , true);
-	 this.explosionSound.play();
-
 	 this.shakeWorld = 10;
+	 enemy.life -= 3;
 
-	 enemy.kill();
+	 if(enemy.life <= 0) {
+		 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
+		 this.explosion.animations.add('boom');
+		 this.explosion.play('boom', 30, false , true);
+		 this.explosionSound.play();
+		 enemy.kill();
+	 }
+
 	 fire.kill();
 
    this._incrementScore();
@@ -88,14 +91,18 @@ HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 
 HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 
-	 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
-	 this.explosion.animations.add('boom');
-	 this.explosion.play('boom', 30, false , true);
-	 this.explosionSound.play();
-
 	 this.shakeWorld = 10;
 
-	 enemy.kill();
+	 enemy.life -= 1;
+
+	 if(enemy.life <= 0) {
+		 enemy.kill();
+		 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
+		 this.explosion.animations.add('boom');
+		 this.explosion.play('boom', 30, false , true);
+		 this.explosionSound.play();
+	 }
+
 	 fire.kill();
 
    this._incrementScore();
