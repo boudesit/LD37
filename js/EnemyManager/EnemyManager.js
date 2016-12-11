@@ -49,7 +49,14 @@ EnemyManager.prototype.update = function update() {
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
+<<<<<<< HEAD
 	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doors[this._randomDoor()], this.heroSprite);
+=======
+	var doorc = doors[this._randomDoor()];
+	console.log(this.doorsNumber);
+	console.log(doorc);
+	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doorc, this.heroSprite);
+>>>>>>> refs/remotes/origin/development
 	tempEnemy.create();
 	this.enemyArray.push(tempEnemy);
 	this.enemyGroup.add(tempEnemy.getSprite())
