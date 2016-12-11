@@ -42,6 +42,7 @@ EnemyManager.prototype.update = function update() {
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
 	var doorc = doors[this._randomDoor()];
+	console.log(this.doorsNumber);
 	console.log(doorc);
 	tempEnemy = new Enemy(this.game, 100, enemys[this._randomEnemy()], doorc, this.heroSprite);
 	tempEnemy.create();
@@ -58,7 +59,7 @@ EnemyManager.prototype._randomEnemy = function _randomEnemy() {
 };
 
 EnemyManager.prototype._randomDoor = function _randomDoor() {
-	return Math.floor(Math.random() * this.doorsNumber + 1);
+	return Math.floor(Math.random() * this.doorsNumber + 1) -1;
 };
 
 

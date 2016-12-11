@@ -34,7 +34,7 @@ text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + 
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
-	if((this.doors != this.coeff) && this.doors < 4) {
+	if((this.doors != this.coeff) && (this.doors < 4) && ((this.population % 5) == 0)) {
 		this.doors = this.coeff;
 	}
 		console.log(this.doors);
