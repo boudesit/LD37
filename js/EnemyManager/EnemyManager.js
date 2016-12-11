@@ -20,32 +20,24 @@ EnemyManager.prototype.create = function create() {
 
 EnemyManager.prototype.update = function update() {
 	if(this.waveGo === true){
-		for(i = 0; i < this.waveNumber; i++){
-				
-				this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
-				this.increment += 1.5;
+		if(this.waveNumber > 0 ){
+			this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
+			this.waveNumber--;
+			this.spawnAllowed = false;
+			this.increment += 1;
 		}
-		this.waveNumber = 0;
-		this.waveGo = false;
-		this.increment = 0;
-	}
-	var ennemyArrayAlive = new Array();
-	for(i = 0; i < this.enemyArray.length; i++){
-		if(this.enemyArray[i].getSprite().alive === true){
-			ennemyArrayAlive.push(this.enemyArray[i]);
-		}
-	}
 
+		if(this.setWaveNumber === 0){
+			this.waveGo = false;
+			this.increment = 0;
+		}
+	}
 	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
 	}
-	if(ennemyArrayAlive.length === 0){
+	if(this.enemyArray.length === 0){
 		this.allEnemyDead = true;
-	}else{
-		this.allEnemyDead = false;
 	}
-
-	this.enemyArray = ennemyArrayAlive;
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
