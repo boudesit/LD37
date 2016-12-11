@@ -23,11 +23,19 @@ Dindon.prototype.getSprite = function getSprite() {
 };
 
 Dindon.prototype.update = function update() {
-	this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
+	if (this.dindonSprite.alive === true){
+		this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
+	}else{
+		this.dindonSprite.destroy();
+	}
 };
 
 Dindon.prototype.destroy = function destroy() {
 	this.dindonSprite.destroy();
+};
+
+Enemy.prototype.die = function die() {
+	this.dead = true;
 };
 
 Dindon.prototype.isDead = function isDead() {

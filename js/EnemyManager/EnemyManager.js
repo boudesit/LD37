@@ -24,7 +24,7 @@ EnemyManager.prototype.update = function update() {
 			this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
 			this.waveNumber--;
 			this.spawnAllowed = false;
-			this.increment += 2.5;
+			this.increment += 0.5;
 		}
 
 		if(this.setWaveNumber === 0){
@@ -33,10 +33,21 @@ EnemyManager.prototype.update = function update() {
 		}
 	}
 	for(i = 0; i < this.enemyArray.length; i++){
+		// if(this.enemyArray[i].getSprite().alive === false){
+		// 	this.enemyArray[i].destroy();
+		// 	this.enemyArray.splice(0,i)
+			// if(this.enemyArray.length === 1 && i === 0 ){
+			// 	this.enemyArray = new Array();
+			// }
+		///}
+	}
+	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
 	}
 	if(this.enemyArray.length === 0){
 		this.allEnemyDead = true;
+	}else{
+		this.allEnemyDead = false;
 	}
 };
 
