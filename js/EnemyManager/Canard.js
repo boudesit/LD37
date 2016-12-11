@@ -9,7 +9,8 @@ function Canard(game, velocity, door, heroSprite) {
 };
 
 Canard.prototype.create = function create() {
-	this.canardSprite = this.game.add.sprite(this.posX, this.posY, "Canard", 0);
+	this.canardSprite = this.game.add.sprite(this.door[0], this.door[1], "Canard", 0);
+	console.log(this.door);
 	this.game.physics.arcade.enable(this.canardSprite);
 	this.canardSprite.enableBody = true;
 	this.canardSprite.body.velocity.x = this.velocity;
@@ -18,12 +19,12 @@ Canard.prototype.create = function create() {
 	this.canardSprite.body.collideWorldBounds=true;
 };
 
-Canard.prototype.getSprite = function getSprite() {
-	return this.canardSprite;
-};
-
 Canard.prototype.update = function update() {
 	this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 250);
+};
+
+Canard.prototype.getSprite = function getSprite() {
+	return this.canardSprite;
 };
 
 Canard.prototype.destroy = function destroy() {
