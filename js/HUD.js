@@ -62,7 +62,7 @@ HUD.prototype.update = function update() {
 	 	//  Run collision
 	 game.physics.arcade.overlap(  this.hero._getWeapons1() , this.enemy._getEnemyGroup()  , this.fire1HitEnemy, null, this);
 	 game.physics.arcade.overlap(  this.hero._getWeapons2() , this.enemy._getEnemyGroup()  , this.fire2HitEnemy, null, this);
-
+	 game.physics.arcade.collide(  this.enemy._getEnemyGroup() , this.enemy._getEnemyGroup() , null, null, this);
 	 game.physics.arcade.overlap(  this.enemy._getEnemyGroup() , this.hero._getSprite()  , this.enemyHitHero, null, this);
 };
 
