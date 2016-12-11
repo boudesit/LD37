@@ -46,6 +46,10 @@ preload.prototype = {
     this.game.load.image('gametitle', 'assets/img/game_start.png');
 		this.game.load.image('background', 'assets/img/game_bg.png');
 		this.game.load.image('gameover', 'assets/img/gameover.png');
+
+		//Mur
+		this.game.load.image('MurHBG', 'assets/img/MurHautGauche.png');
+
 		//
 		// //Sound
     // 	game.load.audio('gameSound', 'assets/sound/music_game_1644.mp3');
