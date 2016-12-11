@@ -10,10 +10,10 @@ function Enemy(game, velocity, type, door, heroSprite) {
 };
 
 var types = ["Canard", "Dindon", "Poule"];
-var door1 = [50, 50];
-var door2 = [200, 200];
-var door3 = [350, 350];
-var door4 = [500, 500];
+var door1 = [800, 300];
+var door2 = [0, 300];
+var door3 = [400, 600];
+var door4 = [400, 0];
 
 Enemy.prototype.create = function create() {
 	this.createEnemy();
@@ -21,6 +21,10 @@ Enemy.prototype.create = function create() {
 
 Enemy.prototype.update = function update() {
 	this.enemy.update();
+};
+
+Enemy.prototype.die = function die() {
+	this.enemy.die();
 };
 
 Enemy.prototype.getSprite = function getSprite() {
