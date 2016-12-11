@@ -16,6 +16,7 @@ Canard.prototype.create = function create() {
 	this.canardSprite.body.velocity.y = this.velocity;
 	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.canardSprite.body.collideWorldBounds=true;
+	this.canardSprite.scale.setTo(1.5,1.5);
 	this.canardSprite.life = 3;
 };
 

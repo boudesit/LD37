@@ -17,6 +17,7 @@ Poule.prototype.create = function create() {
 	this.pouleSprite.body.velocity.y = this.velocity;
 	this.pouleSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.pouleSprite.body.collideWorldBounds=true;
+	this.pouleSprite.scale.setTo(1.5,1.5);
 	this.pouleSprite.life = 1;
 };
 

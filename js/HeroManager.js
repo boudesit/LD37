@@ -31,6 +31,7 @@ HeroManager.prototype = {
 		this.sprite.enableBody = true;
 	  this.sprite.body.collideWorldBounds=true;
 		this.sprite.anchor.set(0.5);
+		this.sprite.scale.setTo(1.5,1.5);
 
     //  Arme 1
     this.weapon = this.game.add.weapon(5, 'bullet');
