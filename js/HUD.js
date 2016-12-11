@@ -34,7 +34,7 @@ HUD.prototype.create = function create() {
   this.wavesManager.create();
 
 	//  The score
-	this.scoreText = game.add.text(10, 10, this.score, { font: '34px Arial', fill: '#fff' });
+	this.scoreText = game.add.text(100, 15, this.score, { font: '34px Arial', fill: '#fff' });
 
 	//Live HUD
 	this.lives = game.add.group();
@@ -42,7 +42,7 @@ HUD.prototype.create = function create() {
 
 	for (var i = 0; i < 3; i++)
 	{
-			var hero_life = this.lives.create(game.world.width - 100 + (30 * i), 30, 'hero_idle');
+			var hero_life = this.lives.create(game.world.width - 200 + (30 * i), 35, 'hero_idle');
 			hero_life.anchor.setTo(0.5, 0.5);
 			hero_life.alpha = 0.4;
 	}
@@ -72,7 +72,7 @@ HUD.prototype.update = function update() {
 	 //MurHBG
  	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getSprite()  , null , null, this);
 	 this.game.physics.arcade.collide(   this.map._getMur() , this.enemy._getEnemyGroup()   , null , null, this);
-	 
+
 	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getWeapons1()   , this.destroyBullet , null, this);
 	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getWeapons2()   , this.destroyBullet , null, this);
 
@@ -145,6 +145,7 @@ HUD.prototype.enemyHitHero = function enemyHitHero(hero,enemy) {
 };
 
 HUD.prototype.lose = function lose() {
+	this.game.scoreTotal = 	this.score;
 	this.game.state.start("GameOver");
 };
 
