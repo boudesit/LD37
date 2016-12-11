@@ -23,6 +23,10 @@ Enemy.prototype.update = function update() {
 	this.enemy.update();
 };
 
+Enemy.prototype.die = function die() {
+	this.enemy.die();
+};
+
 Enemy.prototype.getSprite = function getSprite() {
 	return this.enemy.getSprite();
 };
