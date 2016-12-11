@@ -34,10 +34,10 @@ WavesManager.prototype.update = function update() {
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
-	if((this.doors != this.coeff) && this.doors < 4) {
-		this.doors = this.coeff;
-	}
-		this.enemy.createEnemyWave(this.doors, 5);
+	if((this.doors != this.coeff) && (this.doors < 4) && ((this.population % 5) == 0)) {
+  		this.doors = this.coeff;
+ 	}
+		this.enemy.createEnemyWave(this.doors, this.populateEnemy());
 
 };
 

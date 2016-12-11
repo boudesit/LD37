@@ -32,18 +32,16 @@ Enemy.prototype.getSprite = function getSprite() {
 };
 
 Enemy.prototype.createEnemy = function createEnemy(){
-	// if(this.type === "Canard"){
-	// 	this.enemy = new Canard(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
-	// 	this.enemy.create();
-	// }else if(this.type === "Dindon"){
-	// 	this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
-	// 	this.enemy.create();
-	// }else if(this.type === "Poule"){
-	// 	this.enemy = new Poule(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
-	// 	this.enemy.create();
-	// }
-	this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
-	this.enemy.create();
+	if(this.type === "Canard"){
+		this.enemy = new Canard(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
+		this.enemy.create();
+	}else if(this.type === "Dindon"){
+		this.enemy = new Dindon(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
+		this.enemy.create();
+	}else if(this.type === "Poule"){
+		this.enemy = new Poule(this.game, this.velocity, this.chooseDoor(), this.heroSprite);
+		this.enemy.create();
+	}
 };
 
 Enemy.prototype.chooseDoor = function chooseDoor(){
