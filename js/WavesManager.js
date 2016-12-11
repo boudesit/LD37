@@ -5,7 +5,7 @@ function WavesManager(game, enemy) {
 	this.enemy = enemy;
 	this.population = 1;
 	this.coeff = 1;
-	this.doors = 0
+	this.doors = 0;
 };
 
 
@@ -19,28 +19,28 @@ WavesManager.prototype.create = function create() {
   this.timer.loop(10000, this.updateCounter, this);
 	this.timer.start();
 
-};
-
-WavesManager.prototype.update = function update() {
-
-	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
-
-// text = this.game.add.text(0, 0, 'Time until event: ' + this.timer.duration.toFixed(0), style);
-//text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + this.coeff, style);
-	if(this.enemy.isAllEnemyDead()) {
-		this.endWaves();
-	}
+	this.timer1 = game.time.create(false);
+	this.timer1.loop(1250, this.isWaveIsFinnish, this);
+	this.timer1.start();
 
 };
+
+WavesManager.prototype.update = function update() {};
 
 WavesManager.prototype.updateCounter = function updateCounter() {
 	if((this.doors != this.coeff) && (this.doors < 4) && ((this.population % 5) == 0)) {
 		this.doors = this.coeff;
  	}
-		console.log(this.doors);
 		this.enemy.createEnemyWave(this.doors, this.populateEnemy());
 
 };
+
+WavesManager.prototype.isWaveIsFinnish = function isWaveIsFinnish() {
+	if(this.enemy.isAllEnemyDead() && (this.enemy._getIncrement() == 0)) {
+		this.endWaves();
+	}
+}
+
 
 WavesManager.prototype.endWaves = function endWaves() {
 		this.timer.destroy();
