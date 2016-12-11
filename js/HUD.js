@@ -5,7 +5,9 @@ function HUD(game) {
   this.enemy = null;
   this.hero = null;
   this.wavesManager = null;
-
+	this.lives = null;
+	this.score = 0;
+	this.scoreText = '';
 };
 
 HUD.prototype.create = function create() {
@@ -21,6 +23,21 @@ HUD.prototype.create = function create() {
 
   this.wavesManager = new WavesManager(this.game, this.enemy);
   this.wavesManager.create();
+
+	//  The score
+	//scoreString = 'Score : ';
+	this.scoreText = game.add.text(10, 10, this.score, { font: '34px Arial', fill: '#fff' });
+
+	//Live HUD
+	this.lives = game.add.group();
+	//game.add.text(game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
+
+	for (var i = 0; i < 3; i++)
+	{
+			var hero_life = this.lives.create(game.world.width - 100 + (30 * i), 30, 'hero_idle');
+			hero_life.anchor.setTo(0.5, 0.5);
+			hero_life.alpha = 0.4;
+	}
 };
 
 
@@ -52,20 +69,21 @@ HUD.prototype.update = function update() {
 
 HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 
- this.explosion.reset(enemy.body.x, enemy.body.y - 50);
- this.explosion.animations.add('boom');
- this.explosion.play('boom', 30, false , true);
- this.explosionSound.play();
+	 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
+	 this.explosion.animations.add('boom');
+	 this.explosion.play('boom', 30, false , true);
+	 this.explosionSound.play();
 
- this.shakeWorld = 10;
+	 this.shakeWorld = 10;
 
- enemy.kill();
- fire.kill();
+	 enemy.kill();
+	 fire.kill();
 
- //this._incrementScore();
+   this._incrementScore();
 };
 
 HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
+
 	 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
 	 this.explosion.animations.add('boom');
 	 this.explosion.play('boom', 30, false , true);
@@ -76,7 +94,7 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 	 enemy.kill();
 	 fire.kill();
 
- //this._incrementScore();
+   this._incrementScore();
 };
 
 
@@ -84,6 +102,14 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 HUD.prototype.enemyHitHero = function enemyHitHero(hero,enemy) {
 
 	enemy.kill();
+
+	live = this.lives.getFirstAlive();
+
+	if (live)
+	{
+			live.kill();
+	}
+
 	if(this.hero._heroIsHit() == 0){
 			 //Lose
 			 this.lose();
@@ -92,4 +118,9 @@ HUD.prototype.enemyHitHero = function enemyHitHero(hero,enemy) {
 
 HUD.prototype.lose = function lose() {
 	this.game.state.start("GameOver");
+};
+
+HUD.prototype._incrementScore = function _incrementScore() {
+		this.score += 50;
+		this.scoreText.text = this.score;
 };
