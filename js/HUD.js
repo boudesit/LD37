@@ -70,7 +70,11 @@ HUD.prototype.update = function update() {
 	  }
 
 	 //MurHBG
- 	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getSprite()  , this.consoleprout , null, this);
+ 	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getSprite()  , null , null, this);
+	 this.game.physics.arcade.collide(   this.map._getMur() , this.enemy._getEnemyGroup()   , null , null, this);
+	 
+	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getWeapons1()   , this.destroyBullet , null, this);
+	 this.game.physics.arcade.collide(   this.map._getMur() , this.hero._getWeapons2()   , this.destroyBullet , null, this);
 
 	 //  Run collision
 	 game.physics.arcade.overlap(  this.hero._getWeapons1() , this.enemy._getEnemyGroup()  , this.fire1HitEnemy, null, this);
@@ -80,9 +84,10 @@ HUD.prototype.update = function update() {
 
 };
 
-HUD.prototype.consoleprout = function consoleprout() {
-	console.log("prout");
-};
+
+HUD.prototype.destroyBullet = function destroyBullet(mur,bullet) {
+	bullet.kill();
+}
 
 HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 
