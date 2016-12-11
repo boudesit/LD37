@@ -12,6 +12,10 @@ function HUD(game) {
 
 HUD.prototype.create = function create() {
 
+	this.spriteBG = this.game.add.tileSprite(0, 0, 800, 600, 'background');
+	this.spriteBG.animations.add('backgroundAnime');
+	this.spriteBG.animations.play('backgroundAnime', 10, true);
+
 	this.explosionSound = game.add.audio('explosionSound');
 	this.explosion  = game.add.sprite(-100,-100, 'explosion');
 
