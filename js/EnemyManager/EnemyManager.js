@@ -19,33 +19,26 @@ EnemyManager.prototype.create = function create() {
 };
 
 EnemyManager.prototype.update = function update() {
-	if(this.waveGo === true){
-		for(i = 0; i < this.waveNumber; i++){
-				
-				this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
-				this.increment += 1.5;
+	if(this.waveGo){
+		if(this.waveNumber > 0 ){
+			this.allEnemyDead = false;
+			this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
+			this.waveNumber--;
+			this.spawnAllowed = false;
+			this.increment += 1.2;
 		}
-		this.waveNumber = 0;
-		this.waveGo = false;
-		this.increment = 0;
-	}
-	var ennemyArrayAlive = new Array();
-	for(i = 0; i < this.enemyArray.length; i++){
-		if(this.enemyArray[i].getSprite().alive === true){
-			ennemyArrayAlive.push(this.enemyArray[i]);
-		}
-	}
 
+		if(this.waveNumber == 0){
+			this.waveGo = false;
+			this.increment = 0;
+		}
+	}
 	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
 	}
-	if(ennemyArrayAlive.length === 0){
+	if(this.enemyGroup.length == 0){
 		this.allEnemyDead = true;
-	}else{
-		this.allEnemyDead = false;
 	}
-
-	this.enemyArray = ennemyArrayAlive;
 };
 
 EnemyManager.prototype._createEnemy = function _createEnemy(){
@@ -86,7 +79,7 @@ EnemyManager.prototype._setWaveNumber = function _setWaveNumber(waveNumber){
 	this.waveNumber = waveNumber;
 };
 
-EnemyManager.prototype._setWaveGo = function _setWaveNumber(waveGo){
+EnemyManager.prototype._setWaveGo = function _setWaveGo(waveGo){
 	this.waveGo = waveGo;
 };
 
@@ -96,4 +89,8 @@ EnemyManager.prototype._setDoorsNumber = function _setDoorsNumber(doorsNumber){
 
 EnemyManager.prototype._getEnemyGroup = function _getEnemyGroup(){
 	return this.enemyGroup;
+};
+
+EnemyManager.prototype._getIncrement = function _getIncrement(){
+	return this.increment;
 };

@@ -11,9 +11,9 @@ preload.prototype = {
 		this.game.load.spritesheet('explosion', 'assets/img/explode.png', 128, 128);
 		//
 		//
-		this.game.load.spritesheet('Dindon', 'assets/img/dindon-sprite-1.png', 41, 50,2);
-		this.game.load.spritesheet('Canard', 'assets/img/canard-sprite-1.png', 50, 49,2);
-		this.game.load.spritesheet('Poule', 'assets/img/canard-sprite-3.png', 50, 50,2);
+		this.game.load.spritesheet('Dindon', 'assets/img/dindon.png', 22, 40,3);
+		this.game.load.spritesheet('Canard', 'assets/img/canard.png', 22, 40,3);
+		this.game.load.spritesheet('Poule', 'assets/img/poule.png', 22, 40,3);
 		// this.game.load.spritesheet('enemy_up3', 'assets/img/enemy7_2101.png', 50, 50,2);
 		//
 		// this.game.load.spritesheet('enemy_shot0', 'assets/img/enemy4_2007.png', 50, 150,4);
@@ -42,12 +42,19 @@ preload.prototype = {
     this.game.load.image('hero_idle', 'assets/img/hero_idle.png');
     this.game.load.image('bullet', 'assets/img/bullet.png');
     this.game.load.image('bullet2', 'assets/img/bullet2.png');
-		//
+
+    this.game.load.image('gametitle', 'assets/img/game_start.png');
+		this.game.load.image('background', 'assets/img/game_bg.png');
+		this.game.load.image('gameover', 'assets/img/gameover.png');
+
+		//Mur
+		this.game.load.image('MurHBG', 'assets/img/MurHautGauche.png');
+
 		//
 		// //Sound
-    // 	game.load.audio('gameSound', 'assets/sound/music_game_1644.mp3');
-    // 	game.load.audio('introSound', 'assets/sound/music_title_1613.mp3');
-    // 	game.load.audio('loseSound', 'assets/sound/gameover_2321.mp3');
+     		game.load.audio('gameSound', 'assets/sound/game.mp3');
+     		game.load.audio('introSound', 'assets/sound/intro.mp3');
+     		game.load.audio('loseSound', 'assets/sound/loose.mp3');
   	   	game.load.audio('explosionSound', 'assets/sound/explodeSound.mp3');
   	// 	game.load.audio('jumpSound', 'assets/sound/sound_Up.mp3');
   	// 	game.load.audio('crouchSound', 'assets/sound/sound_down.mp3');

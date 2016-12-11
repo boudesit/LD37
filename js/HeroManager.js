@@ -31,6 +31,7 @@ HeroManager.prototype = {
 		this.sprite.enableBody = true;
 	  this.sprite.body.collideWorldBounds=true;
 		this.sprite.anchor.set(0.5);
+		this.sprite.scale.setTo(1.5,1.5);
 
     //  Arme 1
     this.weapon = this.game.add.weapon(5, 'bullet');
@@ -41,10 +42,12 @@ HeroManager.prototype = {
 
 		//Arme 2
 		this.weapon2 = this.game.add.weapon(50, 'bullet2');
-		this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		//this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		this.weapon2.bulletKillType = Phaser.Weapon.KILL_DISTANCE;
+		this.weapon2.bulletKillDistance = 200;
 		this.weapon2.bulletSpeed = 900;
 		this.weapon2.fireRate = 200;
-		this.weapon2.bulletAngleVariance = 20;
+		this.weapon2.bulletAngleVariance = 10;
 		this.weapon2.trackSprite(this.sprite, 4, 4);
 
 		var key1 = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -58,33 +61,32 @@ HeroManager.prototype = {
 			//Sprite to mouse
 			var radMouse = game.physics.arcade.angleToPointer(this.sprite);
 
-			if( ( radMouse > 1.57   &&  radMouse  < 3.14 )  ||  ( radMouse < -1.57   && radMouse  > -3.14 )  )
+			if( ( radMouse > Math.PI/2   &&  radMouse  < Math.PI )  ||  ( radMouse < -Math.PI/2   && radMouse  > -Math.PI )  )
 			{
-					//console.log("gauche : " + game.physics.arcade.angleToPointer(this.sprite) );
 					this.sprite.scale.x = 1;
 			}else{
-					//console.log("Droite : " + game.physics.arcade.angleToPointer(this.sprite) );
 					this.sprite.scale.x = -1;
 			}
 
 
 			//Deplacement
-				var vitesse = 4;
 
+ 				this.sprite.body.velocity.x = 0;
+				this.sprite.body.velocity.y = 0;
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
-				    this.sprite.x -= vitesse;
+						this.sprite.body.velocity.x = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.D)) {
-				    this.sprite.x += vitesse;
+						this.sprite.body.velocity.x = 500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.W)) {
-				    this.sprite.y -= vitesse;
+				    this.sprite.body.velocity.y = -500;
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.S)) {
-				    this.sprite.y += vitesse;
+				    this.sprite.body.velocity.y  = 500;
 				}
 
         if ( game.input.activePointer.leftButton.isDown )
