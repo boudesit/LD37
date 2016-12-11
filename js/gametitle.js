@@ -10,18 +10,18 @@ gameTitle.prototype = {
       this.spriteBG.animations.play('gametitle', 2, true);
 
   		this.startButton = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-		this.startButton.onDown.add(this.playTheGame, this);
+		  this.startButton.onDown.add(this.playTheGame, this);
 
   		if (introSound.isPlaying == false)
   		{
   			introSound.loop = true;
-    	    introSound.play();
+    	  introSound.play();
     	}else{
     		introSound.resume();
-    	}	
+    	}
 	},
 	playTheGame: function(){
 		introSound.pause();
 		this.game.state.start("TheGame");
 	}
-} 
+}
