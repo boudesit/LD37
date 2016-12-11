@@ -2,8 +2,8 @@ var HeroManager = function(game) {
 	this.game = game;
 	this.sprite = null;
 
-	this.posX = 130;
-	this.posY = 450;
+	this.posX = 400;
+	this.posY = 300;
 
 	this.isDead = false;
 	this.life = 3;
@@ -30,7 +30,7 @@ HeroManager.prototype = {
 		this.sprite.physicsBodyType = Phaser.Physics.ARCADE;
 		this.sprite.enableBody = true;
 	  this.sprite.body.collideWorldBounds=true;
-
+		this.sprite.anchor.set(0.5);
 
     //  Arme 1
     this.weapon = this.game.add.weapon(5, 'bullet');
@@ -54,6 +54,19 @@ HeroManager.prototype = {
     },
 
     update: function() {
+
+			//Sprite to mouse
+			var radMouse = game.physics.arcade.angleToPointer(this.sprite);
+
+			if( ( radMouse > 1.57   &&  radMouse  < 3.14 )  ||  ( radMouse < -1.57   && radMouse  > -3.14 )  )
+			{
+					//console.log("gauche : " + game.physics.arcade.angleToPointer(this.sprite) );
+					this.sprite.scale.x = 1;
+			}else{
+					//console.log("Droite : " + game.physics.arcade.angleToPointer(this.sprite) );
+					this.sprite.scale.x = -1;
+			}
+
 
 			//Deplacement
 				var vitesse = 4;
