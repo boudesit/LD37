@@ -39,7 +39,6 @@ WavesManager.prototype.updateCounter = function updateCounter() {
 	}
 		console.log(this.doors);
 		this.enemy.createEnemyWave(this.doors, this.populateEnemy());		//	setWaveNumber(doorsNumber, waveNumer)
-		this.enemy.createEnemyWave(0, this.populateEnemy());
 				//	setWaveNumber(doorsNumber, waveNumer)
 
 };
