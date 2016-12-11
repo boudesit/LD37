@@ -9,10 +9,18 @@ function HUD(game) {
 	this.score = 0;
 	this.scoreText = '';
 	this.map = null;
+		this.music = null;
 };
 
 HUD.prototype.create = function create() {
-
+	
+  music = game.add.audio('gameSound', 1, true);
+	if (music.isPlaying == false)
+	{
+		 music.play();
+	}else{
+		music.resume();
+	}
 	this.spriteBG = this.game.add.tileSprite(0, 0, 800, 600, 'background');
 	this.spriteBG.animations.add('backgroundAnime');
 	this.spriteBG.animations.play('backgroundAnime', 10, true);

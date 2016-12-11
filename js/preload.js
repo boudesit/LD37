@@ -52,9 +52,9 @@ preload.prototype = {
 
 		//
 		// //Sound
-    // 	game.load.audio('gameSound', 'assets/sound/music_game_1644.mp3');
-    // 	game.load.audio('introSound', 'assets/sound/music_title_1613.mp3');
-    // 	game.load.audio('loseSound', 'assets/sound/gameover_2321.mp3');
+     		game.load.audio('gameSound', 'assets/sound/game.mp3');
+     		game.load.audio('introSound', 'assets/sound/intro.mp3');
+     		game.load.audio('loseSound', 'assets/sound/loose.mp3');
   	   	game.load.audio('explosionSound', 'assets/sound/explodeSound.mp3');
   	// 	game.load.audio('jumpSound', 'assets/sound/sound_Up.mp3');
   	// 	game.load.audio('crouchSound', 'assets/sound/sound_down.mp3');
