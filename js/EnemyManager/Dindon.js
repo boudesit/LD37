@@ -9,13 +9,13 @@ function Dindon(game, velocity, door, heroSprite) {
 };
 
 Dindon.prototype.create = function create() {
-	this.dindonSprite = this.game.add.sprite(this.posX, this.posY, "Dindon", 0);
+	this.dindonSprite = this.game.add.sprite(this.door[0], this.door[1], "Dindon", 0);
 	this.game.physics.arcade.enable(this.dindonSprite);
 	this.dindonSprite.enableBody = true;
 	this.dindonSprite.body.velocity.x = this.velocity;
 	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
-	this.dindonSprite.body.collideWorldBounds=true;                        
+	this.dindonSprite.body.collideWorldBounds=true;
 };
 
 Dindon.prototype.getSprite = function getSprite() {
@@ -23,11 +23,19 @@ Dindon.prototype.getSprite = function getSprite() {
 };
 
 Dindon.prototype.update = function update() {
-	this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
+	if (this.dindonSprite.alive === true){
+		this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
+	}else{
+		this.dindonSprite.destroy();
+	}
 };
 
 Dindon.prototype.destroy = function destroy() {
 	this.dindonSprite.destroy();
+};
+
+Enemy.prototype.die = function die() {
+	this.dead = true;
 };
 
 Dindon.prototype.isDead = function isDead() {

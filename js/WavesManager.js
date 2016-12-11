@@ -26,7 +26,7 @@ WavesManager.prototype.update = function update() {
 	var style = { font: "32px Arial", fill: "#ff0044", align: "center", backgroundColor: "#ffff00" };
 
 // text = this.game.add.text(0, 0, 'Time until event: ' + this.timer.duration.toFixed(0), style);
-text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + this.coeff, style);
+//text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + this.coeff, style);
 	if(this.enemy.isAllEnemyDead()) {
 		this.endWaves();
 	}
@@ -34,19 +34,17 @@ text2 =this.game.add.text(0, 100,'Loop Count: ' + this.population + 'coeff: ' + 
 };
 
 WavesManager.prototype.updateCounter = function updateCounter() {
-	if((this.doors != this.coeff) && this.doors < 4) {
+	if((this.doors != this.coeff) && (this.doors < 4) && ((this.population % 5) == 0)) {
 		this.doors = this.coeff;
-	}
-		this.enemy.createEnemyWave(this.doors, this.populateEnemy());		//	setWaveNumber(doorsNumber, waveNumer)
-		this.enemy.createEnemyWave(0, this.populateEnemy());
-				//	setWaveNumber(doorsNumber, waveNumer)
+ 	}
+		console.log(this.doors);
+		this.enemy.createEnemyWave(this.doors, this.populateEnemy());
 
 };
 
 WavesManager.prototype.endWaves = function endWaves() {
 		this.timer.destroy();
 		this.updateCounter();
-
 		this.timer = game.time.create(false);
 		this.timer.loop(10000, this.updateCounter, this);
 		this.timer.start();
