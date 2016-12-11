@@ -16,6 +16,7 @@ Dindon.prototype.create = function create() {
 	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.dindonSprite.body.collideWorldBounds=true;
+	this.dindonSprite.scale.setTo(1.5,1.5);
 	this.dindonSprite.life = 6;
 };
 
@@ -25,7 +26,7 @@ Dindon.prototype.getSprite = function getSprite() {
 
 Dindon.prototype.update = function update() {
 	if (this.dindonSprite.alive === true){
-		this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 250);
+		this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 100);
 	}else{
 		this.dindonSprite.destroy();
 	}

@@ -35,7 +35,7 @@ EnemyManager.prototype.update = function update() {
 	for(i = 0; i < this.enemyArray.length; i++){
 		this.enemyArray[i].update();
 	}
-	if(this.enemyArray.length === 0){
+	if(this.enemyGroup.length === 0){
 		this.allEnemyDead = true;
 	}
 };
