@@ -41,10 +41,12 @@ HeroManager.prototype = {
 
 		//Arme 2
 		this.weapon2 = this.game.add.weapon(50, 'bullet2');
-		this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		//this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+		this.weapon2.bulletKillType = Phaser.Weapon.KILL_DISTANCE;
+		this.weapon2.bulletKillDistance = 200;
 		this.weapon2.bulletSpeed = 900;
 		this.weapon2.fireRate = 200;
-		this.weapon2.bulletAngleVariance = 20;
+		this.weapon2.bulletAngleVariance = 10;
 		this.weapon2.trackSprite(this.sprite, 4, 4);
 
 		var key1 = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -58,12 +60,10 @@ HeroManager.prototype = {
 			//Sprite to mouse
 			var radMouse = game.physics.arcade.angleToPointer(this.sprite);
 
-			if( ( radMouse > 1.57   &&  radMouse  < 3.14 )  ||  ( radMouse < -1.57   && radMouse  > -3.14 )  )
+			if( ( radMouse > Math.PI/2   &&  radMouse  < Math.PI )  ||  ( radMouse < -Math.PI/2   && radMouse  > -Math.PI )  )
 			{
-					//console.log("gauche : " + game.physics.arcade.angleToPointer(this.sprite) );
 					this.sprite.scale.x = 1;
 			}else{
-					//console.log("Droite : " + game.physics.arcade.angleToPointer(this.sprite) );
 					this.sprite.scale.x = -1;
 			}
 
