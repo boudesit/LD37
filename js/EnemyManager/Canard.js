@@ -16,11 +16,13 @@ Canard.prototype.create = function create() {
 	this.canardSprite.body.velocity.y = this.velocity;
 	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.canardSprite.body.collideWorldBounds=true;
+	this.canardSprite.scale.setTo(1.5,1.5);
+	this.canardSprite.life = 3;
 };
 
 Canard.prototype.update = function update() {
 	if (this.canardSprite.alive === true){
-		this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 250);
+		this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 175);
 	}else{
 		this.canardSprite.destroy();
 	}
