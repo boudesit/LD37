@@ -9,15 +9,10 @@ function HUD(game) {
 	this.score = 0;
 	this.scoreText = '';
 	this.map = null;
-	this.music = null;
-	this.poulehitSound = null;
+		this.music = null;
 };
 
 HUD.prototype.create = function create() {
-
-	//sound
-	this.poulehitSound = game.add.audio('poulhit');
-	this.poulehitSound.volume = 10;
 
   this.music = game.add.audio('gameSound', 1, true);
 	if (this.music.isPlaying == false)
@@ -57,7 +52,6 @@ HUD.prototype.create = function create() {
 	{
 			var hero_life = this.lives.create(game.world.width - 200 + (30 * i), 35, 'hero_idle');
 			hero_life.anchor.setTo(0.5, 0.5);
-			hero_life.alpha = 0.4;
 	}
 
 
@@ -108,7 +102,6 @@ HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 	 enemy.life -= 3;
 
 	 if(enemy.life <= 0) {
-		 this.poulehitSound.play();
 		 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
@@ -127,12 +120,11 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 	 enemy.life -= 1;
 
 	 if(enemy.life <= 0) {
-		 this.poulehitSound.play();
+		 enemy.kill();
 		 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
 		 this.explosionSound.play();
-		 enemy.kill();
 	 }
 
 	 fire.kill();
