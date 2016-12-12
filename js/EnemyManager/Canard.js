@@ -21,6 +21,7 @@ Canard.prototype.create = function create() {
 	this.canardSprite.anchor.set(0.5);
 	this.canardSprite.scale.setTo(2,2);
 	this.canardSprite.life = 3;
+	this.canardSprite.score = 100;
 };
 
 Canard.prototype.update = function update() {
