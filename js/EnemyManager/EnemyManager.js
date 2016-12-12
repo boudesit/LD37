@@ -25,7 +25,7 @@ EnemyManager.prototype.update = function update() {
 			this.game.time.events.add(Phaser.Timer.SECOND * this.increment, this._createEnemy, this);
 			this.waveNumber--;
 			this.spawnAllowed = false;
-			this.increment += 1.2;
+			this.increment += 2;
 		}
 
 		if(this.waveNumber == 0){

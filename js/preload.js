@@ -44,7 +44,7 @@ preload.prototype = {
     this.game.load.image('bullet2', 'assets/img/bullet2.png');
 
     this.game.load.image('gametitle', 'assets/img/game_start.png');
-		this.game.load.image('background', 'assets/img/game_bg.png');
+		this.game.load.image('background', 'assets/img/game_bg.jpg');
 		this.game.load.image('gameover', 'assets/img/gameover.png');
 
 		//Mur
@@ -56,8 +56,11 @@ preload.prototype = {
      		game.load.audio('introSound', 'assets/sound/intro.mp3');
      		game.load.audio('loseSound', 'assets/sound/loose.mp3');
   	   	game.load.audio('explosionSound', 'assets/sound/explodeSound.mp3');
-  	// 	game.load.audio('jumpSound', 'assets/sound/sound_Up.mp3');
-  	// 	game.load.audio('crouchSound', 'assets/sound/sound_down.mp3');
+
+				game.load.audio('oeuf', 'assets/sound/oeuf.mp3');
+
+      	game.load.audio('poulhit', 'assets/sound/poulhit.mp3');
+        game.load.audio('renardhit', 'assets/sound/renardhit.mp3');
   	// 	game.load.audio('deathSound', 'assets/sound/sound_death.mp3');
 
 

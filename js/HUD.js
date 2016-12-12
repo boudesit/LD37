@@ -52,7 +52,6 @@ HUD.prototype.create = function create() {
 	{
 			var hero_life = this.lives.create(game.world.width - 200 + (30 * i), 35, 'hero_idle');
 			hero_life.anchor.setTo(0.5, 0.5);
-			hero_life.alpha = 0.4;
 	}
 
 
@@ -103,7 +102,7 @@ HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 	 enemy.life -= 3;
 
 	 if(enemy.life <= 0) {
-		 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
+		 this.explosion.reset(enemy.body.x - 50, enemy.body.y - 50);
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
 		 this.explosionSound.play();
@@ -122,7 +121,7 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 
 	 if(enemy.life <= 0) {
 		 enemy.kill();
-		 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
+		 this.explosion.reset(enemy.body.x - 50 , enemy.body.y - 50 );
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
 		 this.explosionSound.play();
