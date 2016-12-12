@@ -30,9 +30,10 @@ HeroManager.prototype = {
 		this.oeufSound = game.add.audio('oeuf');
 		this.oeufSound.volume = 10;
 		//Sprite
-		this.sprite = this.game.add.sprite(this.posX,this.posY, 'hero_idle');
-		//this.sprite.animations.add('idle', [0,1]);
-		//this.sprite.animations.play('idle', 5, true);
+		this.sprite = this.game.add.sprite(this.posX,this.posY, 'hero_idle', 3);
+		this.sprite.animations.add('idle', [3]);
+		this.sprite.animations.add('move', [3,4,5]);
+		this.sprite.animations.play('idle', 5, true);
 
 		this.game.physics.arcade.enable(this.sprite);
 		this.sprite.physicsBodyType = Phaser.Physics.ARCADE;
@@ -81,20 +82,30 @@ HeroManager.prototype = {
 
  				this.sprite.body.velocity.x = 0;
 				this.sprite.body.velocity.y = 0;
+				if(!game.input.keyboard.isDown(Phaser.Keyboard.A) && !game.input.keyboard.isDown(Phaser.Keyboard.D) &&
+						!game.input.keyboard.isDown(Phaser.Keyboard.W) && !game.input.keyboard.isDown(Phaser.Keyboard.S)) {
+							this.sprite.animations.add('idle', [3]);
+							this.sprite.animations.play('idle', 5, true);
+				}
+
 				if(game.input.keyboard.isDown(Phaser.Keyboard.A)) {
 						this.sprite.body.velocity.x = -500;
+						this.sprite.animations.play('move', 3, true);
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.D)) {
 						this.sprite.body.velocity.x = 500;
+						this.sprite.animations.play('move', 3, true);
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.W)) {
 				    this.sprite.body.velocity.y = -500;
+						this.sprite.animations.play('move', 3, true);
 				}
 
 				if(game.input.keyboard.isDown(Phaser.Keyboard.S)) {
 				    this.sprite.body.velocity.y  = 500;
+						this.sprite.animations.play('move', 3, true);
 				}
 
         if ( game.input.activePointer.leftButton.isDown )
