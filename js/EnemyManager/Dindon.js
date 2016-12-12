@@ -21,6 +21,7 @@ Dindon.prototype.create = function create() {
 	this.dindonSprite.anchor.set(0.5);
 	this.dindonSprite.scale.setTo(2,2);
 	this.dindonSprite.life = 6;
+	this.dindonSprite.score = 150;
 };
 
 Dindon.prototype.getSprite = function getSprite() {
