@@ -16,7 +16,7 @@ WavesManager.prototype.create = function create() {
 	this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
   this.timer = game.time.create(false);
-  this.timer.loop(10000, this.updateCounter, this);
+  this.timer.loop(15000, this.updateCounter, this);
 	this.timer.start();
 
 	this.timer1 = game.time.create(false);
@@ -53,7 +53,7 @@ WavesManager.prototype.endWaves = function endWaves() {
 WavesManager.prototype.populateEnemy = function populateEnemy(){
 	this.population++;
 	if((this.population % 5) == 0) {
-		this.coeff++;
+		this.coeff += 0.5;
 	}
 	return this.population * this.coeff;
 }
