@@ -22,6 +22,7 @@ Poule.prototype.create = function create() {
 	this.pouleSprite.anchor.set(0.5);
 	this.pouleSprite.scale.setTo(2,2);
 	this.pouleSprite.life = 1;
+	this.pouleSprite.score = 50;
 };
 
 Poule.prototype.getSprite = function getSprite() {
