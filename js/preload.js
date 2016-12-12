@@ -14,6 +14,8 @@ preload.prototype = {
 		this.game.load.spritesheet('Dindon', 'assets/img/dindon2.png', 22, 20,3);
 		this.game.load.spritesheet('Canard', 'assets/img/canard2.png', 22, 20,3);
 		this.game.load.spritesheet('Poule', 'assets/img/poule2.png', 22, 20,3);
+		this.game.load.spritesheet('hero_idle', 'assets/img/renard-2.png', 22,20,6);
+
 		// this.game.load.spritesheet('enemy_up3', 'assets/img/enemy7_2101.png', 50, 50,2);
 		//
 		// this.game.load.spritesheet('enemy_shot0', 'assets/img/enemy4_2007.png', 50, 150,4);
@@ -39,7 +41,6 @@ preload.prototype = {
 		//
 		//
 		// //Image
-    this.game.load.image('hero_idle', 'assets/img/hero_idle.png');
     this.game.load.image('bullet', 'assets/img/bullet.png');
     this.game.load.image('bullet2', 'assets/img/bullet2.png');
 
@@ -49,6 +50,7 @@ preload.prototype = {
 
 		//Mur
 		this.game.load.image('MurHBG', 'assets/img/MurHautGauche.png');
+		// this.game.load.image('goldenegg', 'assets/img/oeuf-en-or.png');
 
 		//
 		// //Sound
