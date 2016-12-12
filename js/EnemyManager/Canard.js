@@ -18,11 +18,19 @@ Canard.prototype.create = function create() {
 	this.canardSprite.body.velocity.y = this.velocity;
 	this.canardSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.canardSprite.body.collideWorldBounds=true;
+	this.canardSprite.anchor.set(0.5);
 	this.canardSprite.scale.setTo(2,2);
 	this.canardSprite.life = 3;
 };
 
 Canard.prototype.update = function update() {
+	if(this.canardSprite.body != null) {
+		if(this.canardSprite.body.velocity.x < 0) {
+			this.canardSprite.scale.x = 1;
+		} else {
+			this.canardSprite.scale.x = -1;
+		}
+	}
 	if (this.canardSprite.alive === true){
 		this.game.physics.arcade.moveToObject(this.canardSprite, this.heroSprite, 175);
 	}else{
