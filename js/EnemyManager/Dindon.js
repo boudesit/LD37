@@ -18,6 +18,7 @@ Dindon.prototype.create = function create() {
 	this.dindonSprite.body.velocity.y = this.velocity;
 	this.dindonSprite.physicsBodyType = Phaser.Physics.ARCADE;
 	this.dindonSprite.body.collideWorldBounds=true;
+	this.dindonSprite.anchor.set(0.5);
 	this.dindonSprite.scale.setTo(2,2);
 	this.dindonSprite.life = 6;
 };
@@ -27,6 +28,13 @@ Dindon.prototype.getSprite = function getSprite() {
 };
 
 Dindon.prototype.update = function update() {
+	if(this.dindonSprite.body != null) {
+		if(this.dindonSprite.body.velocity.x < 0) {
+			this.dindonSprite.scale.x = 1;
+		} else {
+			this.dindonSprite.scale.x = -1;
+		}
+	}
 	if (this.dindonSprite.alive === true){
 		this.game.physics.arcade.moveToObject(this.dindonSprite, this.heroSprite, 100);
 	}else{
