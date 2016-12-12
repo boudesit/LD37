@@ -102,7 +102,7 @@ HUD.prototype.fire1HitEnemy = function fire1HitEnemy(fire,enemy) {
 	 enemy.life -= 3;
 
 	 if(enemy.life <= 0) {
-		 this.explosion.reset(enemy.body.x, enemy.body.y - 50);
+		 this.explosion.reset(enemy.body.x - 50, enemy.body.y - 50);
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
 		 this.explosionSound.play();
@@ -121,7 +121,7 @@ HUD.prototype.fire2HitEnemy = function fire2HitEnemy(fire,enemy) {
 
 	 if(enemy.life <= 0) {
 		 enemy.kill();
-		 this.explosion.reset(enemy.body.x - 10, enemy.body.y - 10);
+		 this.explosion.reset(enemy.body.x - 50 , enemy.body.y - 50 );
 		 this.explosion.animations.add('boom');
 		 this.explosion.play('boom', 30, false , true);
 		 this.explosionSound.play();
