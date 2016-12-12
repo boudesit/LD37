@@ -16,11 +16,19 @@ var HeroManager = function(game) {
 	this.isSpacePress = false;
 
 	this.live = null;
+	this.renardhitSound = null;
+	this.oeufSound  = null;
 }
 
 HeroManager.prototype = {
     create: function() {
 
+		//sound
+		this.renardhitSound = game.add.audio('renardhit');
+		this.renardhitSound.volume = 20;
+
+		this.oeufSound = game.add.audio('oeuf');
+		this.oeufSound.volume = 10;
 		//Sprite
 		this.sprite = this.game.add.sprite(this.posX,this.posY, 'hero_idle');
 		//this.sprite.animations.add('idle', [0,1]);
@@ -98,6 +106,11 @@ HeroManager.prototype = {
 					}
 					if(this.switch_Weapon == true)
 					{
+						if (this.oeufSound.isPlaying == false)
+						{
+							 this.oeufSound.play();
+						}
+
 						this.weapon2.fireAngle = (( game.physics.arcade.angleToPointer(this.sprite) * 180) / Math.PI);
 						this.weapon2.fire();
 					}
@@ -138,6 +151,7 @@ HeroManager.prototype = {
 		},
 
 		_heroIsHit : function() {
+				this.renardhitSound.play();
 				this.live -= 1;
 				return this.live;
 		}
